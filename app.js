@@ -6,7 +6,7 @@ function double(num){
 }
 
 function doubleValues(arr){
-    const newArr = [];
+    let newArr = [];
 
     const doubleVal = arr.forEach(function(value){
         return newArr.push(value * 2);
@@ -15,4 +15,14 @@ function doubleValues(arr){
     return newArr;
 }
 
-function onlyEven();
+function onlyEvenValues(arr){
+    let newArr = [];
+
+    const evenVals = arr.forEach(function(value){
+        if(value % 2 === 0){
+            newArr.push(value);
+        }
+    })
+
+    return newArr;
+};
