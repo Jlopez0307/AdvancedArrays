@@ -6,8 +6,15 @@ Examples:
     doubleValues([5,1,2,3,10]) // [10,2,4,6,20]
 
 */
+
 function doubleValues(arr){
-    
+    let newArr = [];
+
+    const doubleVal = arr.forEach(function(val){
+        return newArr.push(val * 2);
+    })
+
+    return newArr;
 }
 
 /*
@@ -19,7 +26,15 @@ Examples:
 
 */
 function onlyEvenValues(arr){
-    
+    let newArr = [];
+
+    const evenVals = arr.forEach(function(val){
+        if(val % 2 === 0){
+            return newArr.push(val);
+        }
+    });
+
+    return newArr;
 }
 
 /*
@@ -31,7 +46,15 @@ Examples:
 
 */
 function showFirstAndLast(arr){
-    
+    let newArr = [];
+
+    const firstAndLast = arr.forEach(function(val){
+        const firstChar = val.charAt(0)
+        const lastChar = val.charAt(val.length - 1);
+        return newArr.push(firstChar + lastChar);
+    })
+
+    return newArr;
 }
 
 /*
