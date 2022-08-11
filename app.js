@@ -14,3 +14,5 @@ function doubleValues(arr){
 
     return newArr;
 }
+
+function onlyEven();
