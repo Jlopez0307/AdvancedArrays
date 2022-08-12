@@ -67,7 +67,14 @@ Examples:
 
 */
 function addKeyAndValue(arr,key,value){
-    
+    let newArr = [];
+
+    const keyAndVal = arr.forEach(function(val){
+        val[key] = value;
+        return newArr.push(val);
+    })
+
+    return newArr;
 }
 
 /*
@@ -81,7 +88,21 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 function vowelCount(str){
-   
+    const newObj = {};
+    const vowels = 'aeiou';
+    const chars = str.split('')
+
+    chars.forEach(function(vow){
+        let lowerCase = vow.toLowerCase()
+        if (vowels.indexOf(lowerCase) !== -1) {
+            if (newObj[lowerCase]) {
+                newObj[lowerCase]++;
+            } else {
+                newObj[lowerCase] = 1;
+            }
+          }
+        });
+        return newObj;    
 }
 
 /*
@@ -92,8 +113,15 @@ Examples:
     doubleValuesWithMap([1,-2,-3]) // [2,-4,-6]
 */
 
-function doubleValuesWithMap(arr) {}
+function doubleValuesWithMap(arr) {
+    let newArr = [];
+    arr.map(function(value){
+        return newArr.push(value * 2);
+    })
 
+    return newArr;
+}
+    
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
 
@@ -103,7 +131,13 @@ Examples:
 */
 
 function valTimesIndex(arr){
-    
+    let newArr = [];
+
+    arr.map(function(values, i){
+        return newArr.push(values * i);
+    })
+
+    return newArr;
 }
 
 /*
@@ -113,9 +147,11 @@ Examples:
     extractKey([{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}], 'name') // ['Elie', 'Tim', 'Matt', 'Colt']
 */
 
-function extractKey(arr, key){
-    
-}
+function extractKey(arr, key) {
+    return arr.map(function(val) {
+      return val[key];
+    });
+  }
 
 /*
 Write a function called extractFullName which accepts an array of objects and returns a new array with the value of the key with a name of "first" and the value of a key with the name of  "last" in each object, concatenated together with a space. 
@@ -125,7 +161,9 @@ Examples:
 */
 
 function extractFullName(arr){
-    
+    return arr.map(function(value){
+        return `${value.first} ${value.last}`;
+    })
 }
 
 /*
